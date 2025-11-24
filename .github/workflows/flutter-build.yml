@@ -92,6 +92,12 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Patch config with custom server
+        shell: bash
+        run: |
+          sed -i 's/rs-ny.rustdesk.com/89.23.117.235/g' libs/hbb_common/src/config.rs
+          sed -i 's/OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=/EZwBW6zuTTyZywZeICQcR+VrH7zkxVZ5IrozB8QTbx4=/g' libs/hbb_common/src/config.rs
+
       - name: Restore bridge files
         uses: actions/download-artifact@master
         with:
